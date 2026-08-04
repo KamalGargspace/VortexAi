@@ -15,7 +15,7 @@ graph TD
     
     Client -->|HTTP / REST| API_Gateway
     
-    subgraph Microservices Layer
+    subgraph Microservices_Layer ["Microservices Layer"]
         AuthService[Auth Service :8001]
         ChatService[Chat Service :8002]
         AgentService[Agent Service :8003]
@@ -25,11 +25,11 @@ graph TD
     API_Gateway -->|Protect + Proxy /api/chat| ChatService
     API_Gateway -->|Protect + Proxy /api/agent| AgentService
     
-    subgraph Agent Service Brain
-        ModelFactory[Model Factory - Groq & Gemini]
-        GraphOrchestrator[LangGraph Workflow & Router]
+    subgraph Agent_Brain ["Agent Service Brain"]
+        ModelFactory["Model Factory - Groq & Gemini"]
+        GraphOrchestrator["LangGraph Workflow & Router"]
         
-        subgraph Specialized Agents
+        subgraph Specialized_Agents ["Specialized Agents"]
             ChatAgent[Chat Agent]
             SearchAgent[Web Search Agent]
             VisionAgent[Vision Agent]
@@ -49,7 +49,7 @@ graph TD
     
     AgentService --> ModelFactory
     
-    subgraph Storage & Infrastructure
+    subgraph Storage_Infra ["Storage & Infrastructure"]
         MongoDB[(MongoDB)]
         Redis[(Redis Cache/PubSub)]
         FirebaseAdmin[Firebase Auth Admin]
@@ -61,9 +61,9 @@ graph TD
     AuthService --> MongoDB
     ChatService --> MongoDB
     AgentService --> MongoDB
-    Microservices Layer -.-> Redis
-    Microservices Layer -.-> AWS
-    Microservices Layer -.-> Razorpay
+    Microservices_Layer -.-> Redis
+    Microservices_Layer -.-> AWS
+    Microservices_Layer -.-> Razorpay
 ```
 
 ---
