@@ -4,6 +4,13 @@ VortexAi is an advanced, microservices-driven **Multi-Agent AI Ecosystem**. It l
 
 ---
 
+## 🌟 Recent Updates
+* **Frontend Overhaul:** Introduced a modern, responsive layout on the Home page featuring `SideBar`, `ChatArea`, and `Artifact` components. Migrated to `lucide-react` for UI icons and implemented a centralized Redux `conversationSlice` to manage active chat sessions.
+* **Chat API Simplification:** Refactored the Chat Service controllers to directly return conversation payloads for leaner and more predictable API responses.
+* **Agent & Orchestration Enhancements:** Refined LangGraph routing and state management. Renamed and corrected model configuration files, and integrated `axios` into the agent service.
+
+---
+
 ## 🏗️ System Architecture
 
 VortexAi follows a distributed microservices pattern behind a centralized **API Gateway**. The gateway handles request routing, authentication validation, and header propagation before forwarding traffic to specialized downstream microservices.

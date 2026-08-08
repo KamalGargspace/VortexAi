@@ -5,6 +5,9 @@ import { auth, googleProvider } from "../../utils/firebase";
 import { FcGoogle } from "react-icons/fc";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserData } from "../redux/userSlice";
+import SideBar from "../components/SideBar";
+import ChatArea from "../components/ChatArea";
+import Artifact from "../components/Artifact";
 
 function Home() {
   const { userData } = useSelector((state) => state.user);
@@ -30,25 +33,31 @@ function Home() {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur">
-      {!userData && (
-        <div className="w-[340px] bg-[#13151c] border border-white/[0.08] rounded-2xl p-7 flex flex-col gap-5">
-          <div className="flex flex-col gap-1">
-            <h2 className="text-[17px] font-semibold text-slate-100 tracking-tight">
-              Welcome to VortexAI
-            </h2>
-            <p className="text-[13px] text-slate-500">
-              Please login to continue using the app.
-            </p>
-          </div>
+    <div className="w-screen h-screen bg-[#0d0f14] flex overflow-hidden relative text-white">
+      <SideBar />
+      <ChatArea />
+      <Artifact />
 
-          <button
-            className="w-full flex items-center justify-center gap-3 py-[11px] rounded-xl text-sm font-medium text-black/90 bg-white hover:bg-gray-200  transition-all duration-150 cursor-pointer"
-            onClick={googleLogin}
-          >
-            <FcGoogle size={15} />
-            Continue With Google
-          </button>
+      {!userData && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+          <div className="w-[340px] bg-[#13151c] border border-white/[0.08] rounded-2xl p-7 flex flex-col gap-5">
+            <div className="flex flex-col gap-1">
+              <h2 className="text-[17px] font-semibold text-slate-100 tracking-tight">
+                Welcome to VortexAI
+              </h2>
+              <p className="text-[13px] text-slate-500">
+                Please login to continue using the app.
+              </p>
+            </div>
+
+            <button
+              className="w-full flex items-center justify-center gap-3 py-[11px] rounded-xl text-sm font-medium text-black/90 bg-white hover:bg-gray-200 transition-all duration-150 cursor-pointer"
+              onClick={googleLogin}
+            >
+              <FcGoogle size={15} />
+              Continue With Google
+            </button>
+          </div>
         </div>
       )}
     </div>

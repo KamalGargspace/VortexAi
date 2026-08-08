@@ -10,10 +10,7 @@ export const createConversation = async (req, res) => {
       userId: userId,
     });
 
-    return res.status(200).json({
-      message: "conversation created successfully",
-      conversation,
-    });
+    return res.status(200).json(conversation);
   } catch (error) {
     res.status(500).json({
       message: `create conversation error ${error}`,
@@ -30,10 +27,7 @@ export const getConversation = async (req, res) => {
       userId: userId,
     }).sort({ updatedAt: -1 });
 
-    return res.status(200).json({
-      message: "conversation fetched successfully",
-      conversations,
-    });
+    return res.status(200).json(conversations);
   } catch (error) {
     res.status(500).json({
       message: `get conversation error ${error}`,

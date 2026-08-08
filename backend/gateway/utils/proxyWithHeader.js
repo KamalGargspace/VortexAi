@@ -5,6 +5,8 @@ export const proxyWithHeader = (service) => {
       if (req.user) {
         proxyReqOpts.headers["x-user-id"] = req.user.userId;
       }
+      return proxyReqOpts
     }
+
   })
 }
