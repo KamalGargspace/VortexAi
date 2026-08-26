@@ -3,12 +3,12 @@ import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
 
 export const getModel = async (agent) => {
   const groq = new ChatGroq({
-    model: "llama-3.3-70b-versatile",
+    model: "qwen/qwen3.6-27b",
     apiKey: process.env.GROQ_API_KEY,
   });
 
   const gemini = new ChatGoogleGenerativeAI({
-    model: "gemini-2.5-flash",
+    model: "gemini-1.5-flash",
     apiKey: process.env.GOOGLE_API_KEY,
   });
 
